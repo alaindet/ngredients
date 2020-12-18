@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NgredientsViewportBreakpointService } from './viewport-breakpoint.service';
+import { NgrViewportBreakpointService } from './viewport-breakpoint.service';
 
-describe('NgredientsViewportBreakpointService', () => {
-  let service: NgredientsViewportBreakpointService;
+describe('NgrViewportBreakpointService', () => {
+  let service: NgrViewportBreakpointService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(NgredientsViewportBreakpointService);
+    service = TestBed.inject(NgrViewportBreakpointService);
   });
 
   it('should be created', () => {
