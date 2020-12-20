@@ -1,24 +1,7 @@
-# Ngredients
+# Angular Ingredients
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+This library acts as a kitchen table of **ingredients** to pick and choose while baking your next Angular project. *Ingredients* mostly work independent of one another. Some will fit your recipe, some won't, like real ingredients, but luckily enough you're not forced to use them all togeher thanks to tree-shaking and a multi-entry point approach.
 
-## Code scaffolding
+## Todo: List of ingredients
 
-Run `ng generate component component-name --project ngredients` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngredients`.
-> Note: Don't forget to add `--project ngredients` or else it will be added to the default project in your `angular.json` file. 
-
-## Build
-
-Run `ng build ngredients` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build ngredients`, go to the dist folder `cd dist/ngredients` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ngredients` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Todo: Examples
