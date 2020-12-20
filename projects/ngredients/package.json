@@ -1,6 +1,6 @@
 {
   "name": "ngredients",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Angular Ingredients, stuff you need to bake your Angular app",
   "peerDependencies": {
     "@angular/common": "^11.0.5",
