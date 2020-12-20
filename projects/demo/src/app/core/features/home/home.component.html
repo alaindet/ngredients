@@ -1,0 +1,9 @@
+<h1>Angular Ingredients</h1>
+
+<p>{{ NGREDIENTS_MOTTO }}</p>
+
+<ul>
+  <li *ngFor="let link of FEATURES">
+    <a [routerLink]="link.url">{{ link.label }}</a>
+  </li>
+</ul>
