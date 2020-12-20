@@ -1,4 +1,4 @@
-- Move into `develop` branch
+- Move into `development` branch
 - Update version `./projects/ngredients/package.json`
 - Update `./CHANGELOG.md`
 - Run tests
