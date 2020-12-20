@@ -11,7 +11,8 @@
     "lib:build": "ng build ngredients",
     "lib:prod": "ng build ngredients --prod",
     "lib:start": "ng build ngredients --watch",
-    "demo:start": "ng serve demo"
+    "demo:start": "ng serve demo",
+    "release": "np"
   },
   "private": true,
   "dependencies": {
