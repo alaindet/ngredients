@@ -20,10 +20,8 @@
       "dom"
     ],
     "paths": {
-      "ngredients": [
-        "dist/ngredients/ngredients",
-        "dist/ngredients"
-      ]
+      "ngredients": ["dist/ngredients"],
+      "ngredients/*": ["dist/ngredients/*"]
     }
   },
   "angularCompilerOptions": {
