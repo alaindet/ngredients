@@ -1,6 +1,6 @@
 {
   "name": "ngredients",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,8 +11,7 @@
     "lib:build": "ng build ngredients",
     "lib:prod": "ng build ngredients --prod",
     "lib:start": "ng build ngredients --watch",
-    "demo:start": "ng serve demo",
-    "release": "np"
+    "demo:start": "ng serve demo"
   },
   "private": true,
   "dependencies": {
