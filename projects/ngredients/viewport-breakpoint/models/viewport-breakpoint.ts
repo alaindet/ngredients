@@ -1,6 +1,6 @@
 import { NgrViewportBreakpointBreakpoint } from './breakpoint';
 
-export interface NgrViewportBreakpoint<T> {
+export interface NgrViewportBreakpoint {
   viewportWidth: number;
-  breakpoint: NgrViewportBreakpointBreakpoint<T> | null;
+  breakpoint: NgrViewportBreakpointBreakpoint | null;
 }

@@ -11,39 +11,35 @@ import { NgrViewportBreakpointBreakpointsSpec } from './models/breakpoints-spec'
 import { NgrViewportBreakpointBreakpoint } from './models/breakpoint';
 import { NgrViewportBreakpoint } from './models/viewport-breakpoint';
 
-// TODO
-// https://stackoverflow.com/a/62733441/5653974
-// type GetBreakpointType<Br extends NgrViewportBreakpointConfig<any>> = Br extends NgrViewportBreakpointConfig<infer T> ? T : unknown;
-
 @Injectable()
 export class NgrViewportBreakpointService implements OnDestroy {
 
-  private viewportSize$: BehaviorSubject<NgrViewportBreakpoint<unknown>>;
-  private breakpointsArray: NgrViewportBreakpointBreakpoint<unknown>[] = [];
-  private config: NgrViewportBreakpointConfig<unknown> = NGR_VIEWPORT_BREAKPOINT_CONFIG_DEFAULT;
+  private viewportBreakpoint$: BehaviorSubject<NgrViewportBreakpoint>;
+  private breakpointsArray: NgrViewportBreakpointBreakpoint[] = [];
+  private config: NgrViewportBreakpointConfig = {};
   private sub: Subscription | null = null;
-  private breakpointType: unknown;
 
-  get viewportSize(): Observable<NgrViewportBreakpoint<unknown>> {
-    return this.viewportSize$.asObservable();
+  get viewportBreakpoint(): Observable<NgrViewportBreakpoint> {
+    return this.viewportBreakpoint$.asObservable();
   }
 
   constructor(
     @Inject(NGR_VIEWPORT_BREAKPOINT_CONFIG_TOKEN)
-    config: NgrViewportBreakpointConfig<unknown>,
+    config: NgrViewportBreakpointConfig,
   ) {
-
-    this.config = { ...this.config, ...config };
-    this.breakpointsArray = this.buildBreakpointsArray(this.config?.breakpoints);
-    this.viewportSize$ = new BehaviorSubject<NgrViewportBreakpoint<unknown>>(
-      this.findBreakpoint(window.innerWidth)
-    );
+    this.config = {
+      ...NGR_VIEWPORT_BREAKPOINT_CONFIG_DEFAULT,
+      ...config,
+    };
+    this.breakpointsArray = this.buildBreakpointsArray(this.config.breakpoints);
+    const breakpoint = this.findBreakpoint(window.innerWidth);
+    this.viewportBreakpoint$ = new BehaviorSubject<NgrViewportBreakpoint>(breakpoint);
     this.initResizeObservable();
   }
 
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
-    this.viewportSize$.complete();
+    this.viewportBreakpoint$.complete();
   }
 
   private initResizeObservable(): void {
@@ -63,17 +59,17 @@ export class NgrViewportBreakpointService implements OnDestroy {
     }
 
     this.sub = resizeObservable.subscribe(
-      () => this.viewportSize$.next(
+      () => this.viewportBreakpoint$.next(
         this.findBreakpoint(window.innerWidth)
       )
     );
   }
 
   private buildBreakpointsArray(
-    spec?: NgrViewportBreakpointBreakpointsSpec<unknown> | null
+    spec?: NgrViewportBreakpointBreakpointsSpec | null
   ): NgrViewportBreakpointBreakpoint[] {
 
-    if (!spec || !this.config.breakpoints) {
+    if (!spec || !this?.config.breakpoints) {
       return [];
     }
 
@@ -87,7 +83,10 @@ export class NgrViewportBreakpointService implements OnDestroy {
     }
 
     breakpointsArray.sort(
-      (a: NgrViewportBreakpointBreakpoint, b: NgrViewportBreakpointBreakpoint): number => {
+      (
+        a: NgrViewportBreakpointBreakpoint,
+        b: NgrViewportBreakpointBreakpoint,
+      ): number => {
         return a.resolution > b.resolution ? 1 : -1;
       }
     );

@@ -1,4 +1,4 @@
-export interface NgrViewportBreakpointBreakpoint<T> {
+export interface NgrViewportBreakpointBreakpoint {
   resolution: number;
-  value: T;
+  value: string | number;
 }

@@ -15,8 +15,8 @@ import { NGR_VIEWPORT_BREAKPOINT_CONFIG_TOKEN, NGR_VIEWPORT_BREAKPOINT_CONFIG_DE
 })
 export class NgrViewportBreakpointModule {
 
-  public static forRoot<T>(
-    config?: NgrViewportBreakpointConfig<T>
+  public static forRoot(
+    config?: NgrViewportBreakpointConfig
   ): ModuleWithProviders<NgrViewportBreakpointModule> {
     return {
       ngModule: NgrViewportBreakpointModule,
