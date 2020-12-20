@@ -1,4 +1,4 @@
-- Move into `develop` branch
+- Move into `development` branch
 - Update version `./projects/ngredients/package.json`
 - Update `./CHANGELOG.md`
 - Run tests
@@ -6,7 +6,7 @@
 - Run `ng build ngredients --prod`
 - Try `npm whoami` to check if you're logged in
 - If you're not logged in, run `npm login`
-- Run `cd ./dist/ngredients && npm publish && cd ../../`
+- Run `cd ./dist/ngredients && npm pack && npm publish && cd ../../`
 - Merge into `main` branch
 - Optional (TODO: test)
   ```
